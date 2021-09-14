@@ -2,7 +2,7 @@ import { shade } from 'polished'
 import styled from 'styled-components'
 import { animated } from 'react-spring'
 
-import signInBackground from '../../assets/background-signin.png'
+import forgetPasswordBackground from '../../assets/background-forget-password.png'
 
 export const Container = styled.div`
   height: 100vh;
@@ -23,7 +23,7 @@ export const Content = styled.div`
 
 export const Background = styled(animated.div)`
   flex: 1;
-  background: url(${signInBackground}) no-repeat center;
+  background: url(${forgetPasswordBackground}) no-repeat center;
   background-size: cover;
   background-position-y: bottom;
 `

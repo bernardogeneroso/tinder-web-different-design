@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiLogIn } from 'react-icons/fi'
+import { FiArrowLeft } from 'react-icons/fi'
 import { useSpring, config } from 'react-spring'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -14,7 +14,6 @@ import tinderLogo from '../../assets/tinder-logo.png'
 
 export interface FormData {
   email: string
-  password: string
 }
 
 const schemaForm = yup.object().shape({
@@ -22,13 +21,9 @@ const schemaForm = yup.object().shape({
     .string()
     .email('E-mail must be a valid email')
     .required('E-mail is a required field'),
-  password: yup
-    .string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is a required field'),
 })
 
-export default function SignIn() {
+export default function ForgetPassword() {
   const {
     register,
     handleSubmit: onSubmit,
@@ -59,7 +54,7 @@ export default function SignIn() {
           <img src={tinderLogo} alt="Tinder" />
 
           <form onSubmit={onSubmit(handleSubmit)}>
-            <h1>Make your login</h1>
+            <h1>Forget my password</h1>
 
             <Input
               name="email"
@@ -67,21 +62,13 @@ export default function SignIn() {
               errorMessage={errors.email?.message}
               {...{ register }}
             />
-            <Input
-              name="password"
-              placeholder="Password"
-              errorMessage={errors.password?.message}
-              {...{ register }}
-            />
 
-            <Button type="submit" text="Enter" />
-
-            <Link to="/forget-password">Forget your password</Link>
+            <Button type="submit" text="Continue" />
           </form>
 
-          <Link to="/signup">
-            <FiLogIn />
-            Create account
+          <Link to="/signin">
+            <FiArrowLeft />
+            Go back
           </Link>
         </AnimationContainer>
       </Content>

@@ -18,18 +18,6 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 
-  @media (min-width: 1080px) {
-    html {
-      font-size: 93.75%;
-    }
-  }
-
-  @media (min-width: 720px) {
-    html {
-      font-size: 87.5%;
-    }
-  }
-
   body, input, button, textarea {
     font: 400 1.6rem "Roboto Slab", sans-serif;
   }

@@ -1,4 +1,4 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "cSpell.ignoreWords": ["Roboto", "signin", "signup"]
+  "cSpell.ignoreWords": ["Roboto", "hookform", "signin", "signup"]
 }

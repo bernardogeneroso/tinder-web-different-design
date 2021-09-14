@@ -30,8 +30,12 @@
         "semi": false
       }
     ],
+    "no-nested-ternary": "off",
+    "no-console": "off",
+    "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/semi": ["off"],
     "import/prefer-default-export": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/react-in-jsx-scope": "off",
     "comma-dangle": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
