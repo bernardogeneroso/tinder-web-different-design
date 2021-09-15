@@ -7,6 +7,7 @@ interface StepProps {
 
 export const Container = styled(animated.div)`
   width: 100%;
+  background: #fff;
   height: 46px;
   position: absolute;
   top: 0;
