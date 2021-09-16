@@ -8,6 +8,10 @@ interface OptionProps {
 }
 
 function Option({ text, isActive }: OptionProps) {
+  const stylesTextIsActive = useSpring({
+    color: isActive ? '#fe5166' : '#7A7878',
+  })
+
   const [stylesText, apiText] = useSpring(() => ({
     from: { x: 0 },
   }))
@@ -54,6 +58,7 @@ function Option({ text, isActive }: OptionProps) {
             range: [0, 0.35, 0.55, 0.6, 0.75, 0.85, 0.95, 1],
             output: [1, 0.8, 0.7, 0.65, 1.3, 1.1, 1.03, 1],
           }),
+          ...stylesTextIsActive,
         }}
         className="text"
       >

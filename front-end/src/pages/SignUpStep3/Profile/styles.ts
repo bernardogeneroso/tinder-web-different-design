@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 import { transparentize } from 'polished'
+import { animated } from 'react-spring'
 
 interface ButtonProps {
   color: 'red' | 'grey'
 }
 
-export const Container = styled.div`
+export const Container = styled(animated.div)`
   width: 100%;
   padding: 0 1rem;
+  height: 100%;
+  cursor: grab;
 `
 
 export const Header = styled.div`

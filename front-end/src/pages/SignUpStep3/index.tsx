@@ -1,9 +1,7 @@
 import { useSpring, config } from 'react-spring'
 
-import Menu from './Menu'
-import Profile from './Profile'
-import Gender from './Gender'
 import Steps from '../../components/auth/Steps'
+import AboutYou from './AboutYou'
 
 import { Container, AnimationContainer } from './styles'
 
@@ -21,10 +19,7 @@ export default function SignUpStep3() {
       <AnimationContainer style={styles}>
         <h1>About you</h1>
 
-        <Menu menuOption="Profile" />
-
-        <Profile />
-        <Gender />
+        <AboutYou />
       </AnimationContainer>
     </Container>
   )

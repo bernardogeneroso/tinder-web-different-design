@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 8rem 0;
+  overflow: hidden;
 `
 
 export const AnimationContainer = styled(animated.div)`

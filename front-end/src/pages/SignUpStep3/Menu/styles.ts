@@ -6,6 +6,7 @@ interface ContentProps {
 }
 
 export const Container = styled.div`
+  margin: auto;
   width: 100%;
   max-width: 380px;
   display: flex;
@@ -13,6 +14,7 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  gap: 2rem;
   margin-bottom: 2rem;
 `
 
