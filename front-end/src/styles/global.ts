@@ -18,8 +18,8 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 
-  body, input, button, textarea {
-    font: 400 1.6rem "Roboto Slab", sans-serif;
+  body, input, button, textarea, span {
+    font: 400 1.6rem "Roboto", sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6, strong {

@@ -71,14 +71,15 @@ function Option({ text, isActive }: OptionProps) {
 }
 
 interface MenuProps {
-  menuOption: 'Profile' | 'Gender' | 'Interests'
+  menu: string[]
+  menuOption: number
 }
 
-export default function Menu({ menuOption }: MenuProps) {
+export default function Menu({ menu, menuOption }: MenuProps) {
   return (
     <Container>
-      {['Profile', 'Gender', 'Interests'].map((option) => (
-        <Option key={option} text={option} isActive={menuOption === option} />
+      {menu.map((option, i) => (
+        <Option key={option} text={option} isActive={menuOption === i} />
       ))}
     </Container>
   )

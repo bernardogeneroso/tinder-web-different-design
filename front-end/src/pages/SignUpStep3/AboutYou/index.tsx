@@ -5,7 +5,7 @@ import clamp from 'lodash.clamp'
 
 import Menu from '../Menu'
 import Profile from '../Profile'
-// import Gender from '../Gender'
+import Gender from '../Gender'
 
 import { Container, Structure } from './styles'
 
@@ -16,13 +16,15 @@ const pages = [
   },
   {
     name: 'Gender',
-    component: Profile,
+    component: Gender,
   },
   {
     name: 'Interests',
     component: Profile,
   },
 ]
+
+const pagesNames = pages.map((page) => page.name)
 
 export default function AboutYou() {
   const index = useRef(0)
@@ -61,15 +63,11 @@ export default function AboutYou() {
 
   return (
     <Container>
-      <Menu
-        menuOption={
-          page === 0 ? 'Profile' : page === 1 ? 'Gender' : 'Interests'
-        }
-      />
+      <Menu menu={pagesNames} menuOption={page} />
 
       <Structure>
-        {pagesAboutYou.map((props, i) => {
-          return createElement(pages[i].component, { key: i, props, bind })
+        {pagesAboutYou.map((style, i) => {
+          return createElement(pages[i].component, { key: i, style, bind })
         })}
       </Structure>
     </Container>

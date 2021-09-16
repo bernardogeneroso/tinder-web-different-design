@@ -11,10 +11,12 @@ export const Container = styled(animated.div)`
   padding: 0 1rem;
   height: 100%;
   cursor: grab;
+  touch-action: pan-y;
 `
 
 export const Header = styled.div`
   div.container-image {
+    user-select: none;
     display: inline-block;
     position: relative;
 

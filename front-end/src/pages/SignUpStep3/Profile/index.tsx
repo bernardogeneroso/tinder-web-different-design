@@ -8,17 +8,17 @@ import InputAboutYou from '../../../components/auth/InputAboutYou'
 import { Container, Header, Content, ContainerUserInformation } from './styles'
 
 interface ProfileProps {
-  props: {
-    display: SpringValue<string>
+  style: {
     x: SpringValue<number>
+    display: SpringValue<string>
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   bind: any
 }
 
-export default function Profile({ props, bind }: ProfileProps) {
+export default function Profile({ style, bind }: ProfileProps) {
   return (
-    <Container {...bind()} style={props}>
+    <Container style={style} {...bind()}>
       <Header>
         <div className="container-image">
           <img src="https://eu.ui-avatars.com/api/?size=256" alt="Avatar" />

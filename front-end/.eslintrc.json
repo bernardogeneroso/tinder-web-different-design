@@ -30,6 +30,8 @@
         "semi": false
       }
     ],
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-unsafe-call": "off",
