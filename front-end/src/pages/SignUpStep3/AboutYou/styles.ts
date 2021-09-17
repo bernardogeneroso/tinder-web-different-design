@@ -8,4 +8,8 @@ export const Container = styled.div`
   overflow-y: auto;
 `
 
-export const Structure = styled.div``
+export const Structure = styled.div`
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+`

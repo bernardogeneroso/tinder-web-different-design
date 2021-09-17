@@ -1,5 +1,5 @@
 import { useRef, createElement, useCallback, useState } from 'react'
-import { useSprings } from 'react-spring'
+import { useSprings, config } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 import clamp from 'lodash.clamp'
 
@@ -35,6 +35,7 @@ export default function AboutYou() {
       x: i * window.innerWidth,
       display: i === 0 ? 'block' : 'none',
       opacity: i === 0 ? 1 : 0,
+      config: config.gentle,
     }),
     []
   )
@@ -57,7 +58,7 @@ export default function AboutYou() {
 
         const x = (i - index.current) * window.innerWidth + (active ? mx : 0)
         const opacity = active
-          ? 1 - 1 / (window.innerWidth / 1.4 / Math.abs(mx))
+          ? 1 - 1 / (window.innerWidth / 1.6 / Math.abs(mx))
           : 1
 
         if (active) setPage(index.current)
@@ -87,7 +88,11 @@ export default function AboutYou() {
         index.current = i
         setPage(i)
 
-        return { x: 0, opacity: 1, display: 'block' }
+        return {
+          x: 0,
+          opacity: 1,
+          display: 'block',
+        }
       })
     },
     [api]

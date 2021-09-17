@@ -11,13 +11,12 @@ export const Container = styled.div`
 `
 
 export const AnimationContainer = styled(animated.div)`
-  margin-top: 3rem;
   width: 100%;
-  max-width: 600px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
 
   h1 {
     margin-bottom: 2.7rem;

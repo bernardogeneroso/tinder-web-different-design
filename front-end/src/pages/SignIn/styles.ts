@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   display: flex;
   align-items: stretch;
+  justify-content: center;
   overflow: hidden;
 `
 
@@ -22,10 +23,15 @@ export const Content = styled.div`
 `
 
 export const Background = styled(animated.div)`
+  display: block;
   flex: 1;
   background: url(${signInBackground}) no-repeat center;
   background-size: cover;
   background-position-y: bottom;
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
 `
 export const AnimationContainer = styled(animated.div)`
   width: 100%;
