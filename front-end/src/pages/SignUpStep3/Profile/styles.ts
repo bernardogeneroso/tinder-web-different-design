@@ -52,7 +52,7 @@ export const Header = styled.div`
 export const Content = styled.div`
   margin-top: 2.6rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.1fr 2fr;
   gap: 1rem;
 
   @media only screen and (max-width: 600px) {
@@ -67,17 +67,12 @@ export const ContainerUserInformation = styled.div`
 
 export const ContainerUserDetailsInformation = styled.div``
 
-const colorButton = {
-  red: '#E94057',
-  grey: '#7A7878',
-}
-
 export const Button = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   width: 100%;
-  color: ${(props) => colorButton[props.color]};
-  background-color: ${(props) => transparentize(0.8, colorButton[props.color])};
+  color: #7a7878;
+  background-color: ${transparentize(0.8, '#7A7878')};
   outline: 0;
   border: 0;
   height: 56px;

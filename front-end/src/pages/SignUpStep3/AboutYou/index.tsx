@@ -1,4 +1,4 @@
-import { useRef, createElement, useState } from 'react'
+import { useRef, createElement, useCallback, useState } from 'react'
 import { useSprings } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 import clamp from 'lodash.clamp'
@@ -33,7 +33,7 @@ export default function AboutYou() {
     pages.length,
     (i) => ({
       x: i * window.innerWidth,
-      display: 'block',
+      display: i === 0 ? 'block' : 'none',
     }),
     []
   )
@@ -46,6 +46,7 @@ export default function AboutYou() {
           0,
           pages.length - 1
         )
+
         cancel()
       }
 
@@ -61,9 +62,38 @@ export default function AboutYou() {
     }
   )
 
+  const handleSetPageAboutYou = useCallback(
+    (pageOption: number) => {
+      api.start((i) => {
+        if (pageOption < i || pageOption > i) {
+          const x = window.innerWidth
+
+          if (pageOption < i) {
+            return { x: x / 2, display: 'none' }
+          }
+          if (pageOption > i) {
+            return { x: -(x / 2), display: 'none' }
+          }
+
+          return { display: 'none' }
+        }
+
+        index.current = i
+        setPage(i)
+
+        return { x: 0, display: 'block' }
+      })
+    },
+    [api]
+  )
+
   return (
     <Container>
-      <Menu menu={pagesNames} menuOption={page} />
+      <Menu
+        menu={pagesNames}
+        menuOption={page}
+        handleSetPageAboutYou={handleSetPageAboutYou}
+      />
 
       <Structure>
         {pagesAboutYou.map((style, i) => {

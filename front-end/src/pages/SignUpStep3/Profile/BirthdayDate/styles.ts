@@ -18,7 +18,6 @@ export const Button = styled.div`
   border-radius: 1.5rem;
   text-align: start;
   padding: 2rem;
-  margin-top: 1.6rem;
   margin-bottom: 1rem;
 
   transition: filter 0.2s;

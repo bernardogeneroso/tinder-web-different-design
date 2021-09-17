@@ -5,6 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
+  cursor: pointer;
   flex: 1;
   position: relative;
   border-radius: 15px;

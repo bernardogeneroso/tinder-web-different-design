@@ -18,7 +18,7 @@ export default function BirthdayDate() {
 
   return (
     <Container>
-      <Button color="red" onClick={() => dateSelected && setDateSelected(null)}>
+      <Button onClick={() => dateSelected && setDateSelected(null)}>
         <HiOutlineCake size={24} />
 
         {!date ? (

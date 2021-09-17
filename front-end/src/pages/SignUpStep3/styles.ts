@@ -6,11 +6,12 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 8rem 0;
+  padding: 4.6rem 0 0 0;
   overflow: hidden;
 `
 
 export const AnimationContainer = styled(animated.div)`
+  margin-top: 3rem;
   width: 100%;
   max-width: 600px;
   text-align: center;

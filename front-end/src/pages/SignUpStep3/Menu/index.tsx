@@ -5,9 +5,11 @@ import { Container, Content } from './styles'
 interface OptionProps {
   text: string
   isActive: boolean
+  index: number
+  handleSetPageAboutYou(pageOption: number): void
 }
 
-function Option({ text, isActive }: OptionProps) {
+function Option({ text, isActive, index, handleSetPageAboutYou }: OptionProps) {
   const stylesTextIsActive = useSpring({
     color: isActive ? '#fe5166' : '#7A7878',
   })
@@ -27,6 +29,8 @@ function Option({ text, isActive }: OptionProps) {
       to: [{ x: 1 }, { x: 0 }],
       config: config.gentle,
     })
+
+    handleSetPageAboutYou(index)
   }
 
   function handleMouseEnter() {
@@ -73,13 +77,24 @@ function Option({ text, isActive }: OptionProps) {
 interface MenuProps {
   menu: string[]
   menuOption: number
+  handleSetPageAboutYou(pageOption: number): void
 }
 
-export default function Menu({ menu, menuOption }: MenuProps) {
+export default function Menu({
+  menu,
+  menuOption,
+  handleSetPageAboutYou,
+}: MenuProps) {
   return (
     <Container>
       {menu.map((option, i) => (
-        <Option key={option} text={option} isActive={menuOption === i} />
+        <Option
+          key={option}
+          text={option}
+          isActive={menuOption === i}
+          index={i}
+          handleSetPageAboutYou={handleSetPageAboutYou}
+        />
       ))}
     </Container>
   )
