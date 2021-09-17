@@ -10,6 +10,7 @@ import { Container, Header, Content, ContainerUserInformation } from './styles'
 interface ProfileProps {
   style: {
     x: SpringValue<number>
+    opacity: SpringValue<number>
     display: SpringValue<string>
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

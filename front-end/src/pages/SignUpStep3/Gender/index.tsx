@@ -72,6 +72,7 @@ function GenderOption({
 interface GenderProps {
   style: {
     display: SpringValue<string>
+    opacity: SpringValue<number>
     x: SpringValue<number>
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -34,6 +34,7 @@ export default function AboutYou() {
     (i) => ({
       x: i * window.innerWidth,
       display: i === 0 ? 'block' : 'none',
+      opacity: i === 0 ? 1 : 0,
     }),
     []
   )
@@ -51,13 +52,17 @@ export default function AboutYou() {
       }
 
       api.start((i) => {
-        if (i < index.current || i > index.current) return { display: 'none' }
+        if (i < index.current || i > index.current)
+          return { display: 'none', opacity: 0 }
 
         const x = (i - index.current) * window.innerWidth + (active ? mx : 0)
+        const opacity = active
+          ? 1 - 1 / (window.innerWidth / 1.4 / Math.abs(mx))
+          : 1
 
         if (active) setPage(index.current)
 
-        return { x, display: 'block' }
+        return { x, opacity, display: 'block' }
       })
     }
   )
@@ -69,19 +74,20 @@ export default function AboutYou() {
           const x = window.innerWidth
 
           if (pageOption < i) {
-            return { x: x / 2, display: 'none' }
-          }
-          if (pageOption > i) {
-            return { x: -(x / 2), display: 'none' }
+            return { x: x / 2, display: 'none', opacity: 0 }
           }
 
-          return { display: 'none' }
+          if (pageOption > i) {
+            return { x: -(x / 2), display: 'none', opacity: 0 }
+          }
+
+          return { display: 'none', opacity: 0 }
         }
 
         index.current = i
         setPage(i)
 
-        return { x: 0, display: 'block' }
+        return { x: 0, opacity: 1, display: 'block' }
       })
     },
     [api]
