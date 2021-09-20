@@ -6,6 +6,7 @@ import clamp from 'lodash.clamp'
 import Menu from '../Menu'
 import Profile from '../Profile'
 import Gender from '../Gender'
+import Interests from '../Interests'
 
 import { Container, Structure } from './styles'
 
@@ -20,7 +21,7 @@ const pages = [
   },
   {
     name: 'Interests',
-    component: Profile,
+    component: Interests,
   },
 ]
 
