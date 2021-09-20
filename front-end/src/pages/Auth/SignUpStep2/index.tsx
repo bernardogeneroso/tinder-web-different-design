@@ -3,7 +3,7 @@ import { useSpring, config } from 'react-spring'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
-import Steps from '../../components/auth/Steps'
+import Steps from '../../../components/auth/Steps'
 
 import { Container, AnimationContainer } from './styles'
 

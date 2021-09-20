@@ -3,7 +3,7 @@ import { HiOutlineCamera } from 'react-icons/hi'
 
 import Location from './Location'
 import BirthdayDate from './BirthdayDate'
-import InputAboutYou from '../../../components/auth/InputAboutYou'
+import InputAboutYou from '../../../../components/auth/InputAboutYou'
 
 import { Container, Header, Content, ContainerUserInformation } from './styles'
 

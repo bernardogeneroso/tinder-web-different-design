@@ -2,7 +2,7 @@ import { shade } from 'polished'
 import styled from 'styled-components'
 import { animated } from 'react-spring'
 
-import forgetPasswordBackground from '../../assets/background-forget-password.png'
+import forgetPasswordBackground from '../../../assets/background-forget-password.png'
 
 export const Container = styled.div`
   height: 100vh;

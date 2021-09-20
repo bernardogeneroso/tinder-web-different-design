@@ -2,7 +2,7 @@ import { shade } from 'polished'
 import styled from 'styled-components'
 import { animated } from 'react-spring'
 
-import signUpBackground from '../../assets/background-signup.png'
+import signInBackground from '../../../assets/background-signin.png'
 
 export const Container = styled.div`
   height: 100vh;
@@ -14,23 +14,18 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 100%;
   max-width: 700px;
-
-  @media only screen and (max-width: 1100px) {
-    max-width: none;
-  }
 `
 
 export const Background = styled(animated.div)`
   display: block;
   flex: 1;
-  background: url(${signUpBackground}) no-repeat center;
+  background: url(${signInBackground}) no-repeat center;
   background-size: cover;
   background-position-y: bottom;
 

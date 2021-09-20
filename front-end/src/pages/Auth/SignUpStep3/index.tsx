@@ -1,6 +1,6 @@
 import { useSpring, config } from 'react-spring'
 
-import Steps from '../../components/auth/Steps'
+import Steps from '../../../components/auth/Steps'
 import AboutYou from './AboutYou'
 
 import { Container, AnimationContainer } from './styles'
