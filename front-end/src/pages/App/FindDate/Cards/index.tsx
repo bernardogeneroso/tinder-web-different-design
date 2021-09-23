@@ -5,8 +5,9 @@ import { useSprings } from 'react-spring'
 import { useDrag } from '@use-gesture/react'
 
 import Card from './Card'
+import CardDateOptions from './CardDateOptions'
 
-import { Container } from './styles'
+import { Container, Content } from './styles'
 
 const cards = [
   'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
@@ -19,16 +20,20 @@ const cards = [
 
 const to = (i: number) => ({
   x: 0,
-  y: i * 8,
-  scale: 1,
+  y: i === cards.length - 1 ? 0 : -72,
+  scale: i === cards.length - 1 ? 1 : 0.8,
   rot: 0,
   delay: i * 100,
 })
 const from = (i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
 
-export default function Cards() {
+interface CardsProps {
+  handleCardSwipe: (swipe: 'left' | 'right') => void
+}
+
+export default function Cards({ handleCardSwipe }: CardsProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [gone] = useState<any>(() => new Set()) // The set flags all the cards that are flicked out
+  const [gone] = useState<any>(() => new Set())
   const [props, set] = useSprings(cards.length, (i) => ({
     ...to(i),
     from: from(i),
@@ -36,11 +41,9 @@ export default function Cards() {
 
   const bind = useDrag(
     ({
-      active,
       args: [index],
       direction: [xDir],
       movement: [mx, my],
-      distance: [dx, dy],
       down,
       velocity,
     }) => {
@@ -49,14 +52,20 @@ export default function Cards() {
 
       if (!down && trigger) gone.add(index)
 
+      const isGone = gone.has(index)
+
       set.start((i) => {
+        if (i === index - 1) {
+          return {
+            scale: isGone ? 1 : undefined,
+            y: isGone ? 0 : undefined,
+          }
+        }
+
         if (index !== i) return
 
-        console.log(window.innerWidth, window.innerHeight)
-
-        const isGone = gone.has(index)
         const x = isGone ? (mx + window.innerWidth) * dir : down ? mx : 0
-        const y = isGone ? my : down ? my : i * 8
+        const y = isGone ? my : down ? my : 0
 
         const rot = down ? mx / 100 + (isGone ? dir * 10 * velocity[0] : 0) : 0
         const scale = down ? 1.1 : 1
@@ -71,16 +80,24 @@ export default function Cards() {
         }
       })
 
+      if (isGone) {
+        handleCardSwipe(dir < 0 ? 'left' : 'right')
+      }
+
       if (!down && gone.size === cards.length)
-        setTimeout(() => gone.clear() || set((i) => to(i)), 600)
+        setTimeout(() => gone.clear() || set.start((i) => to(i)), 600)
     }
   )
 
   return (
     <Container>
-      {props.map((styles, i) => (
-        <Card key={i} bind={bind} index={i} style={styles} />
-      ))}
+      <Content>
+        {props.map((styles, i) => (
+          <Card key={i} bind={bind} index={i} style={styles} />
+        ))}
+      </Content>
+
+      <CardDateOptions />
     </Container>
   )
 }

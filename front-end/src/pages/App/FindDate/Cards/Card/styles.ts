@@ -20,7 +20,7 @@ export const Background = styled(animated.div)`
   background-position: center center;
   width: 45vh;
   max-width: 300px;
-  height: 85vh;
+  height: 48vh;
   max-height: 570px;
   will-change: transform;
   border-radius: 10px;
