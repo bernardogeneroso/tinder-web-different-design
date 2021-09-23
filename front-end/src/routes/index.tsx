@@ -5,7 +5,9 @@ import SignUp from '../pages/Auth/SignUp'
 import SignUpStep2 from '../pages/Auth/SignUpStep2'
 import SignUpStep3 from '../pages/Auth/SignUpStep3'
 import ForgetPassword from '../pages/Auth/ForgetPassword'
+
 import App from '../pages/App'
+import FindDate from '../pages/App/FindDate'
 
 export default function Routes() {
   return (
@@ -16,7 +18,8 @@ export default function Routes() {
       <Route path="/signup/step3" component={SignUpStep3} />
       <Route path="/forget-password" component={ForgetPassword} />
 
-      <Route path="/app" component={App} />
+      <Route path="/app" component={App} exact />
+      <Route path="/app/find-date" component={FindDate} />
 
       <Redirect from="/" to="signin" />
     </Switch>

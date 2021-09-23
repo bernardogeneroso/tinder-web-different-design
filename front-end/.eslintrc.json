@@ -30,6 +30,8 @@
         "semi": false
       }
     ],
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "react/prop-types": "off",
     "no-param-reassign": "off",
